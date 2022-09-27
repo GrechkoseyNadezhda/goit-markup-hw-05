@@ -16,7 +16,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
@@ -25,9 +25,15 @@
         <nav class="menu">
           <a href="#" class="logo"><span class="logo-span">Web</span>Studio</a>
           <ul class="page-nav">
-            <li class="item-nav"><a href="index.html" class="active">Студія</a></li>
-            <li class="item-nav"><a href="portfolio.html">Портфоліо</a></li>
-            <li class="item-nav"><a href="#">Контакти</a></li>
+            <li class="item-nav active">
+              <a href="index.html">Студія</a>
+            </li>
+            <li class="item-nav">
+              <a href="portfolio.html">Портфоліо</a>
+            </li>
+            <li class="item-nav">
+              <a href="#">Контакти</a>
+            </li>
           </ul>
         </nav>
         <ul class="contact-nav">
@@ -55,7 +61,16 @@
       <section class="service">
         <div class="container">
           <h1 class="title">Ефективні рішення для вашого бізнесу</h1>
-          <button type="button" class="btn">Замовити послугу</button>
+          <button type="button" data-modal-open class="btn">Замовити послугу</button>
+          <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+              <div data-modal-close class="modal-close">
+                <svg class="close-icon" width="11px" height="11px">
+                  <use href="icons/symbol-defs.svg#icon-close"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -108,14 +123,17 @@
         <div class="container">
           <h2 class="title">Чим ми займаємося</h2>
           <ul class="list">
-            <li>
+            <li class="actions-item">
               <img src="images/coding.jpg" alt="writing code" width="370" height="294" />
+              <h3 class="actions-subtitle">Десктопні додатки</h3>
             </li>
-            <li>
+            <li class="actions-item">
               <img src="images/applications.jpg" alt="app creation" width="370" height="294" />
+              <h3 class="actions-subtitle">Мобільні додатки</h3>
             </li>
-            <li>
+            <li class="actions-item">
               <img src="images/design.jpg" alt="color palette" width="370" height="294" />
+              <h3 class="actions-subtitle">Дизайнерські рішення</h3>
             </li>
           </ul>
         </div>
@@ -386,5 +404,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>

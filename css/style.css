@@ -54,9 +54,9 @@ img {
     overflow: hidden;
 }
 
+/* ----- Header ----- */
+
 .page-header {
-    padding-top: 24px;
-    padding-bottom: 25px;
     border-bottom: 1px solid #ECECEC;
 }
 
@@ -90,6 +90,11 @@ img {
 
 }
 
+.page-nav .item-nav {
+    position: relative;
+
+}
+
 .page-nav .item-nav:not(:last-child) {
     margin-right: 50px;
 }
@@ -98,6 +103,7 @@ img {
     list-style: none;
     display: flex;
     margin-left: auto;
+    color: var(--page-color);
 
 }
 
@@ -106,25 +112,37 @@ img {
     fill: currentColor;
 }
 
-
-
 .page-nav a {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 25px;
     font-weight: 500;
     letter-spacing: 0.02em;
     text-decoration: none;
     cursor: pointer;
-    color: var(--page-color);
+    color: currentColor;
 }
 
-.page-nav a:hover {
+.item-nav:hover a, .item-nav:focus a {
     color: var(--main-color);
-}
-.page-nav a:focus {
-    color: var(--main-color);
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-nav .active {
     color: var(--main-color);
+}
+
+.page-nav>.active::after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 4px;
+    background: var(--main-color);
+    border-radius: 2px;
+    width: 100%;
+    bottom: -1px;
 }
 
 .contact-nav .email {
@@ -150,15 +168,20 @@ img {
     cursor: pointer;
 }
 
-
 .contact-nav a:hover {
     color: var(--main-color);
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
 .contact-nav a:focus {
     color: var(--main-color);
 }
+
+
+/* ----- Service ----- */
 
 .service {
     max-width: 1600px;
@@ -173,13 +196,63 @@ img {
     background-size: cover;
 }
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition-property: opacity;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: auto;
+    transition-property: opacity;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal {
+    position: absolute;
+    width: 528px;
+    min-height: 581px;
+    padding: 8px;
+    background: var(--page-white-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    background: var(--page-white-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .service .title {
     width: 696px;
     margin: 0 auto;
     margin-bottom: 30px;
-
     font-weight: 900;
     font-size: 44px;
     line-height: 1.36;
@@ -193,7 +266,6 @@ img {
     display: block;
     margin: 0 auto;
     padding: 10px 32px;
-
     font-family: Roboto, sans-serif;
     background: var(--main-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -205,7 +277,11 @@ img {
     text-align: center;
     letter-spacing: 0.06em;
     color: var(--page-white-color);
+    cursor: pointer;
 }
+
+
+/* ----- Benefits ----- */
 
 .benefits .list {
     display: flex;
@@ -219,11 +295,11 @@ img {
 
 .benefits .subtitle{
     margin-bottom: 10px;
-
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
 }
+
 .benefits p {
     line-height: 1.71;  
     color: var(--page-light-color);
@@ -245,6 +321,7 @@ img {
 }
 
 
+/* ----- Actions ----- */
 
 .actions {
     padding-bottom: 94px;
@@ -265,13 +342,32 @@ img {
     justify-content: space-between;
 }
 
+.actions-item {
+    position: relative;
+}
+
+.actions-subtitle {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    background: rgba(47, 48, 58, 0.8);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--page-white-color);
+}
+
+
+/* ----- Team ----- */
+
 .team {
     background: var(--light-bg);
 }
 
 .team .title {
     margin-bottom: 50px;
-
     font-weight: 700;
     font-size: 36px;
     line-height: 1.67;
@@ -307,13 +403,15 @@ img {
     width: 100%;
     height: 100%;
     border-radius: 100%;
-    fill: var(--icons-color);
-    
+    fill: var(--icons-color);    
 }
 
 .team-social a:hover, .team-social a:focus {
     background-color: var(--main-color);
     fill: var(--page-white-color);
+    transition-property: fill, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-list > li {
@@ -341,6 +439,9 @@ img {
     color: var(--page-light-color);
     text-align: center;
 }
+
+
+/* ----- Clients ----- */
 
 .clients .title {
     margin-bottom: 50px;
@@ -379,10 +480,19 @@ img {
 
 .client-list a:hover, .client-list a:focus {
     fill: var(--main-color);
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client-list li:hover, .client-list li:focus {
     border: 1px solid var(--main-color);
+    transition-property: border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+/* ----- Footer ----- */
 
 .page-footer {
     padding-top: 60px;
@@ -432,6 +542,9 @@ img {
 .page-footer .address:hover, .page-footer .email:hover,
 .page-footer .phone:hover {
     color: var(--main-color);
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 } 
 
 .page-footer .address:focus,
@@ -478,6 +591,9 @@ img {
 
 .social-list a:hover, .social-list a:focus {
     background-color: var(--main-color);
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btns {
@@ -494,7 +610,6 @@ img {
 .btns .btn {
     font-family: 'Roboto', sans-serif;
     padding: 6px 22px;
-
     background: var(--light-bg);
     border-radius: 4px;
     border: none;
@@ -510,7 +625,14 @@ img {
     background: var(--main-color);
     color: var(--page-white-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition-property: background, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+/* ----- Portfolio ----- */
+
 
 .portfolio-items {
     list-style: none;
@@ -527,19 +649,50 @@ img {
     color: var(--page-color);
 } 
 
-.portfolio-items img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
 .portfolio-items .wrapper {
     padding: 20px 24px;
     background: var(--page-white-color);
     border: 1px solid #EEEEEE;
 }
 
-.portfolio-items p {    
+.portfolio-item {
+    flex-basis: 370px;
+}
+
+.portfolio-descr {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--main-color);
+}
+
+.portfolio-text {
+    padding: 63px 24px;
+    font-size: 18px;
+    line-height: 1.56;
+    color: var(--page-white-color);
+}
+
+.portfolio-descr .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    transform: translateY(100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-link:hover .overlay {
+    transform: translateY(0);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-items .wrapper>p {    
     font-size: 16px;
     line-height: 1.88;   
     color: var(--page-light-color);
@@ -552,4 +705,7 @@ img {
 
 .portfolio-items .portfolio-link:hover, .portfolio-items .portfolio-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
