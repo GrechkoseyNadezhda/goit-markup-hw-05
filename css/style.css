@@ -121,13 +121,13 @@ img {
     text-decoration: none;
     cursor: pointer;
     color: currentColor;
+    transition-property: color;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item-nav:hover a, .item-nav:focus a {
     color: var(--main-color);
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-nav .active {
@@ -149,36 +149,33 @@ img {
     margin-right: 50px;
     display: flex;
     align-items: center;
-
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--page-light-color);
     text-decoration: none;
     cursor: pointer;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-nav .phone {
     display: flex;
     align-items: center;
-
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--page-light-color);
     text-decoration: none;
     cursor: pointer;
-}
-
-.contact-nav a:hover {
-    color: var(--main-color);
     transition-property: color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 
-.contact-nav a:focus {
+.contact-nav a:hover, .contact-nav a:focus {
     color: var(--main-color);
 }
+
 
 
 /* ----- Service ----- */
@@ -188,8 +185,7 @@ img {
     padding-top: 200px;
     padding-bottom: 200px;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;    
     background-image: linear-gradient(to top, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/main-bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -403,15 +399,15 @@ img {
     width: 100%;
     height: 100%;
     border-radius: 100%;
-    fill: var(--icons-color);    
+    fill: var(--icons-color); 
+    transition-property: fill, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social a:hover, .team-social a:focus {
     background-color: var(--main-color);
     fill: var(--page-white-color);
-    transition-property: fill, background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-list > li {
@@ -467,6 +463,9 @@ img {
     height: 92px;
     border: 1px solid var(--icons-color);
     border-radius: 4px;
+    transition-property: border;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-list a {
@@ -476,19 +475,18 @@ img {
     justify-content: center;
     align-items: center;
     fill: var(--icons-color);
-}
-
-.client-list a:hover, .client-list a:focus {
-    fill: var(--main-color);
     transition-property: fill;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.client-list a:hover, .client-list a:focus {
+    fill: var(--main-color);
+}
+
 .client-list li:hover, .client-list li:focus {
     border: 1px solid var(--main-color);
-    transition-property: border;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 
@@ -529,6 +527,9 @@ img {
     color: var(--page-white-color);
     font-style: normal;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-footer .email, .page-footer .phone {
@@ -537,14 +538,15 @@ img {
     color: rgba(255, 255, 255, 0.6);
     font-style: normal;
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-footer .address:hover, .page-footer .email:hover,
 .page-footer .phone:hover {
     color: var(--main-color);
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 } 
 
 .page-footer .address:focus,
@@ -586,14 +588,13 @@ img {
     border-radius: 100%;
     background: rgba(255, 255, 255, 0.1);
     fill: var(--page-white-color);
-
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list a:hover, .social-list a:focus {
     background-color: var(--main-color);
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btns {
@@ -619,15 +620,15 @@ img {
     text-align: center;  
     color: var(--page-color);
     cursor: pointer;
+    transition-property: background, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btns .btn:hover, .btns .btn:focus {
     background: var(--main-color);
     color: var(--page-white-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    transition-property: background, color, box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -687,9 +688,6 @@ img {
 
 .portfolio-link:hover .overlay {
     transform: translateY(0);
-    transition-property: transform;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-items .wrapper>p {    
@@ -701,11 +699,11 @@ img {
 .portfolio-link {
     display: block;
     text-decoration: none;
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-items .portfolio-link:hover, .portfolio-items .portfolio-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition-property: box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
